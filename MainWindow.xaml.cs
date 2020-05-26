@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Xceed.Wpf.Toolkit;
 
 namespace TTGenor
 {
@@ -43,14 +44,14 @@ namespace TTGenor
     {
         Utilities utilities;
         private string input_size_Str, output_size_str;
-        private string input_data, output_data;
-        bool is_input_automated, is_input_pregenerated;
+        private string input_data, output_data, working_directory;
+        public bool is_automated_input, is_pregenerated_input, is_manual_input;
 
         public MainWindow()
         {
             InitializeComponent();
             utilities = new Utilities();
-            is_input_automated = is_input_pregenerated = false;
+            is_automated_input = is_pregenerated_input = false;
             input_data = utilities.INPUT_PLACEHOLDER;
             output_data = utilities.OUTPUT_PLACEHOLDER;
         }
