@@ -32,7 +32,11 @@
                         <RadioButton IsChecked="True" GroupName="input_method_group">Sinh test input thủ công</RadioButton>
                         <RadioButton IsChecked="{Binding is_input_pregenerated, Mode=OneWayToSource} " GroupName="input_method_group">Test input đã được sinh sắn</RadioButton> 
                         <RadioButton IsChecked="{Binding is_input_automated, Mode=OneWayToSource} " GroupName="input_method_group">Sinh test input bằng trình sinh test</RadioButton> 
-                        
+                        <StackPanel Orientation="Horizontal"> 
+                            <TextBox Width="240" Margin="5,5,5,5" Text="{Binding input_path}"> </TextBox>
+                            
+                        </StackPanel>
+
                     </StackPanel>
                 </Border>
             </StackPanel>

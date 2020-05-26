@@ -42,7 +42,7 @@ namespace TTGenor
     public partial class MainWindow : Window
     {
         Utilities utilities;
-        private string input_size_Str, output_size_str;
+        private string input_size_Str, output_size_str, input_path, generator_arguments;
         private string input_data, output_data;
         bool is_input_automated, is_input_pregenerated;
 
