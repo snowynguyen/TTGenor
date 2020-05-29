@@ -38,13 +38,63 @@ namespace TTGenor
             s = reduced_size.ToString("F2") + " " + SIZE_NOTATION[reduction_count];
             return s;
         }
+
+        bool checkValidFilePath(string path)
+        {
+            if (String.IsNullOrWhiteSpace(path)) return false;
+            System.IO.FileInfo fi = null;
+            try
+            {
+                fi = new System.IO.FileInfo(path);
+            }
+            catch (ArgumentException) { }
+            catch (System.IO.PathTooLongException) { }
+            catch (NotSupportedException) { }
+            if (ReferenceEquals(fi, null))
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        public string getTestNumber (int subtask, int no)
+        {
+            return "Test_" + subtask.ToString("00") + "_" + no.ToString("000");
+        }
+
+
     }
 
     public partial class MainWindow : Window
     {
         Utilities utilities;
-        private string input_size_Str, output_size_str;
-        private string input_data, output_data, working_directory;
+        private string input_size_Str, output_size_str, task_name;
+        private string input_data, output_data, working_directory, working_test_directory;
+        private int subtask, test_number;
+
+        void updateWorkingTestDirectory()
+        {
+            working_test_directory = working_directory;
+            if (working_test_directory.Last<char>() != '\\')
+                working_test_directory += '\\';
+            working_test_directory += task_name;
+            working_test_directory += '\\';
+            working_test_directory += utilities.getTestNumber(subtask, test_number);
+        }
+
+        private void load_btn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void run_btn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
         public bool is_automated_input, is_pregenerated_input, is_manual_input;
 
         public MainWindow()

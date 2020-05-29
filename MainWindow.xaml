@@ -86,7 +86,7 @@
                             <TextBlock Text="Đường dẫn đặt bộ test: " Margin="4,4,4,4"></TextBlock>
                             <Button Content="Chọn thư mục"></Button>
                         </DockPanel>
-                        <TextBox x:Name="working_path_txb" Text="{Binding working_directory, Mode=OneWayToSource}"></TextBox>
+                        <TextBox x:Name="working_path_txb" Text="{Binding working_directory, Mode=TwoWay}"></TextBox>
                         <DockPanel Margin="4,4,0,4">
                             <TextBlock Text="Subtask #: " VerticalAlignment="Center" DockPanel.Dock="Left" Margin="10,0,0,0"></TextBlock>
                             <xctk:IntegerUpDown Width="60" Minimum="0" Maximum="99" DockPanel.Dock="Left" Margin="0,0,0,0"></xctk:IntegerUpDown>
@@ -107,8 +107,8 @@
                         <Grid.RowDefinitions>
                             <RowDefinition Height="28"></RowDefinition>
                         </Grid.RowDefinitions>
-                        <Button x:Name="run_btn" Content="Chạy"  Grid.Column="0" Margin="3,3,0,3"></Button>
-                        <Button x:Name="load_btn" Content="Load Output" Grid.Column="1"  Margin="3,3,0,3"></Button>
+                        <Button x:Name="run_btn" Content="Chạy"  Grid.Column="0" Margin="3,3,0,3" HorizontalAlignment="Left" Width="134" Click="run_btn_Click"></Button>
+                        <Button x:Name="load_btn" Content="Load Output" Grid.Column="1"  Margin="3,3,0,3" Click="load_btn_Click"></Button>
                     </Grid>
                     <Button Height="25" Margin="3,3,0,3" DockPanel.Dock="Top" Content="Tạo lập test!"></Button>
                 </StackPanel>
